@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from sentence.views import sentence, sentenceUpdated
+
+from project.views import project, projectCreated, listProjects
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('project/', project, name='project'),
+    path('projectCreated/', projectCreated, name='projectCreated'),
+    path('sentences/<int:projectId>/', sentence, name='sentences'),
+    path('sentenceupdated/', sentenceUpdated, name='sentenceupdated'),
+    path('', listProjects, name=''),
 ]

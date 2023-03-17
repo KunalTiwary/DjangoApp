@@ -1,0 +1,4 @@
+{% for project in projects %}
+    <a href="{% url 'sentences' project.id %}">{{ project.articleTitle }}</a><br>
+{% endfor %}
+<a href="{% url 'project' %}">Create A New Project</a>

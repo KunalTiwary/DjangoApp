@@ -1,0 +1,41 @@
+<h1>{{ project.articleTitle }}</h1>
+{% for sentence in sentences %}
+    <div class="sentence">
+        <p>{{ sentence.originalSentence }}</p>
+        <input type="text" size="150" name="translatedSentence" placeholder="Translated sentence" value="{{ sentence.translatedSentence }}">
+    </div>
+{% endfor %}
+<button id="submit-btn">Submit</button>
+
+<script>
+    const submitBtn = document.querySelector('#submit-btn');
+    const sentences = document.querySelectorAll('.sentence');
+    submitBtn.addEventListener('click', () => {
+        const translations = [];
+        sentences.forEach((sentence) => {
+            const originalSentence = sentence.querySelector('p').textContent;
+            const translatedSentence = sentence.querySelector('input').value;
+            const translation = {
+                originalSentence: originalSentence,
+                translatedSentence: translatedSentence
+            };
+            translations.push(translation);
+        });
+
+        fetch('{% url "sentences" project.id %}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify(translations)
+        })
+        .then(data => {
+            window.location.href = "{% url 'sentenceupdated' %}";
+            console.log(data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    });
+</script>

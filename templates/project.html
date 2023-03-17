@@ -1,0 +1,25 @@
+
+<form method="post" action="{% url 'project' %}">
+    {% csrf_token %}
+    <label for="title">Please Enter Wikipedia Article Title:</label>
+    <input type="text" name="wikiTitle" required><br><br>
+    <label for="target_language">Select a Target Language:</label>
+    <select name="targetLang" required>
+        <option value="">Select a language</option>
+        <option value="bn">Bengali</option>
+        <option value="gu">Gujarati</option>
+        <option value="hi">Hindi</option>
+        <option value="kn">Kannada</option>
+        <option value="ml">Malayalam</option>
+        <option value="mr">Marathi</option>
+        <option value="ne">Nepali</option>
+        <option value="or">Oriya</option>
+        <option value="pa">Punjabi</option>
+        <option value="si">Sinhala</option>
+        <option value="ta">Tamil</option>
+        <option value="te">Telugu</option>
+        <option value="ur">Urdu</option>
+    </select><br><br>
+    <input type="submit" value="Submit">
+</form>
+
