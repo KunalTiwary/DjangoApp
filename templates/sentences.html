@@ -1,4 +1,3 @@
-
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -87,13 +86,15 @@
 {% for sentence in sentences %}
     <div class="sentence">
         <p>{{ sentence.originalSentence }}</p>
-        <input type="text" size="150" name="translatedSentence" placeholder="Translated sentence" value="{% if sentence.translatedSentence %}{{ sentence.translatedSentence }}{% else %}{% endif %}" onfocus="if (this.value=='None') this.value='';">
+        <input type="text" size="150" name="translatedSentence" placeholder="Translated sentence" value="{% if sentence.translatedSentence %}{{ sentence.translatedSentence }}{% else %}{% endif %}" class="transliterate-input" onfocus="if (this.value=='None') this.value='';">
     </div>
 {% endfor %}
 <button id="submit-btn">Submit</button>
 <a href="{% url 'logout' %}" class="logout-button">Logout</a>
 
 <script>
+
+
     const submitBtn = document.querySelector('#submit-btn');
     const sentences = document.querySelectorAll('.sentence');
     submitBtn.addEventListener('click', () => {
@@ -124,4 +125,8 @@
             console.error(error);
         });
     });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/transliteration-input-tools@1.1.0/dist/transliteration-input-tools.min.js"></script>
+<script>
+    TransliterateInputTools.init('.transliterate-input', {lang: project.targetLanguage});
 </script>
