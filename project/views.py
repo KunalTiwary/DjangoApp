@@ -20,7 +20,7 @@ def project(request):
         for i, sentence in enumerate(sentences):
             s = sen(projectId=pr, sentenceId=i + 1, originalSentence=sentence)   ####sentence id
             s.save()
-        return HttpResponseRedirect('/projectCreated')
+        return HttpResponseRedirect('/projectcreated')
     else:
         return render(request, 'project.html')
 

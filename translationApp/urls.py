@@ -23,9 +23,9 @@ from project.views import project, projectCreated, listProjects
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('project/', project, name='project'),
-    path('projectCreated/', projectCreated, name='projectCreated'),
+    path('projectcreated/', projectCreated, name='projectcreated'),
     path('sentences/<int:projectId>/', sentence, name='sentences'),
     path('sentenceupdated/', sentenceUpdated, name='sentenceupdated'),
-    path('', listProjects, name=''),
+    path('listprojects/', listProjects, name='listprojects'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
