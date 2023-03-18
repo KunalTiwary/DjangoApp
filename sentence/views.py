@@ -1,12 +1,12 @@
 import json
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from project.models import Project as pro
 from .models import Sentence
 # Create your views here.
 
-
+@login_required
 def sentence(request, projectId):
     if request.method == 'POST':
         translations = json.loads(request.body)
@@ -22,7 +22,7 @@ def sentence(request, projectId):
     sentences = Sentence.objects.filter(projectId=project)
     return render(request, 'sentences.html', {'sentences': sentences, 'project': project})
 
-
+@login_required
 def sentenceUpdated(request):
     if request.method == 'GET':
         return render(request, 'sentenceUpdated.html')

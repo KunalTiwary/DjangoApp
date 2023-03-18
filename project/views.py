@@ -1,12 +1,14 @@
 from django.shortcuts import render
 
 # Create your views here.
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .models import Project as pro
 from wikipediaapi import Wikipedia
 from sentence.models import Sentence as sen
 
+@login_required
 def project(request):
     if request.method == 'POST':
         wikiTitle = request.POST.get('wikiTitle')
@@ -22,12 +24,12 @@ def project(request):
     else:
         return render(request, 'project.html')
 
-
+@login_required
 def projectCreated(request):
     if request.method == 'GET':
         return render(request, 'created.html')
 
-
+@login_required
 def listProjects(request):
     projects = pro.objects.all()
     return render(request, 'listProjects.html', {'projects': projects})
