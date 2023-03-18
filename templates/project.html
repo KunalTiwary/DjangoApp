@@ -70,6 +70,14 @@
         <option value="Telugu">Telugu(te)</option>
         <option value="Urdu">Urdu(ur)</option>
       </select><br><br>
+      <label for="annotator" style="font-size: 1.7rem; margin-bottom: 0.5rem;">Select Annotator:</label>
+      <select name="annotator" required style="padding: 0.5rem; font-size: 1rem; border-radius: 7px; border: 1px solid #ccc;">
+      <option value="">Select an Annotator</option>
+        {% for user in users %}
+      <option value="{{ user.username }}">{{ user.username }}</option>
+      {% endfor %}
+      </select>
+      <br><br>
       <input type="submit" value="Submit">
       <a href="{% url 'logout' %}" class="logout-button">Logout</a>
       <a href="{% url 'listprojects' %}">List of Active Projects</a>

@@ -14,11 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import LoginView
 from django.contrib import admin
 from django.urls import path
 from sentence.views import sentence, sentenceUpdated
 
 from project.views import project, projectCreated, listProjects
+
+
+class CustomLoginView(LoginView):
+    def get_success_url(self):
+        return '/listprojects/'
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +35,5 @@ urlpatterns = [
     path('sentenceupdated/', sentenceUpdated, name='sentenceupdated'),
     path('listprojects/', listProjects, name='listprojects'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('', CustomLoginView.as_view(), name='login'),
 ]
