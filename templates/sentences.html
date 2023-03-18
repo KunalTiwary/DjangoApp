@@ -1,8 +1,77 @@
+ <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 800px;
+        padding: 20px;
+    }
+
+    .left-pane {
+        flex-basis: 50%;
+    }
+
+    .right-pane {
+        flex-basis: 50%;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .sentence {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .sentence p {
+        margin: 0;
+        flex-basis: 50%;
+    }
+
+    .sentence input {
+        flex-basis: 50%;
+        height: auto;
+        align-self: stretch;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    #submit-btn {
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 7px;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    #submit-btn:hover {
+        background-color: #3e8e41;
+    }
+</style>
+
 <h1>{{ project.articleTitle }}</h1>
 {% for sentence in sentences %}
     <div class="sentence">
         <p>{{ sentence.originalSentence }}</p>
-        <input type="text" size="150" name="translatedSentence" placeholder="Translated sentence" value="{{ sentence.translatedSentence }}">
+        <input type="text" size="150" name="translatedSentence" placeholder="Translated sentence" value="{% if sentence.translatedSentence %}{{ sentence.translatedSentence }}{% else %}{% endif %}" onfocus="if (this.value=='None') this.value='';">
     </div>
 {% endfor %}
 <button id="submit-btn">Submit</button>

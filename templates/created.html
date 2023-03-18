@@ -3,10 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Project Created</title>
+    <style>
+        body {
+            background-color: #f1f1f1;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 2rem;
+        }
+
+        a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 1rem;
+        }
+
+        a:hover {
+            background-color: #333;
+        }
+    </style>
 </head>
 <body>
-<h1> Project Created </h1>
-<a href="{% url 'project' %}">Create Another Project</a>
-<a href="{% url '' %}">List of Projects</a>
+    <h1>Project Created</h1>
+    <a href="{% url 'project' %}">Create Another Project</a>
+    <a href="{% url '' %}">List of Active Projects</a>
 </body>
 </html>

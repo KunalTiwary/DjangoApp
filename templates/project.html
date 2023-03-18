@@ -1,10 +1,15 @@
-
-<form method="post" action="{% url 'project' %}">
-    {% csrf_token %}
-    <label for="title">Please Enter Wikipedia Article Title:</label>
-    <input type="text" name="wikiTitle" required><br><br>
-    <label for="target_language">Select a Target Language:</label>
-    <select name="targetLang" required>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My HTML Form</title>
+  </head>
+  <body>
+    <form method="post" action="{% url 'project' %}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+      {% csrf_token %}
+      <label for="title" style="font-size: 1.7rem; margin-bottom: 0.5rem;">Please Enter Wikipedia Article Title:</label>
+      <input type="text" name="wikiTitle" required style="padding: 0.5rem; font-size: 1rem; border-radius: 7px; border: 1px solid #ccc;"><br><br>
+      <label for="target_language" style="font-size: 1.7rem; margin-bottom: 0.5rem;">Select a Target Language:</label>
+      <select name="targetLang" required style="padding: 0.5rem; font-size: 1rem; border-radius: 7px; border: 1px solid #ccc;">
         <option value="">Select a language</option>
         <option value="bn">Bengali</option>
         <option value="gu">Gujarati</option>
@@ -19,7 +24,11 @@
         <option value="ta">Tamil</option>
         <option value="te">Telugu</option>
         <option value="ur">Urdu</option>
-    </select><br><br>
-    <input type="submit" value="Submit">
-</form>
+      </select><br><br>
+      <input type="submit" value="Submit" style="background-color: #4CAF50; color: white; padding: 0.5rem; font-size: 1.2rem; border-radius: 7px; border: none; cursor: pointer; transition: background-color 0.3s ease-in-out;">
+    </form>
+  </body>
+</html>
+
+
 

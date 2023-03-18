@@ -1,4 +1,12 @@
-{% for project in projects %}
-    <a href="{% url 'sentences' project.id %}">{{ project.articleTitle }}</a><br>
-{% endfor %}
-<a href="{% url 'project' %}">Create A New Project</a>
+<div style="text-align: center; background-color: #f1f1f1; padding: 10px;">
+    <h2 style="font-size: 2rem; text-decoration: underline;">List of Active Projects</h2>
+    {% for project in projects %}
+        <a href="{% url 'sentences' project.id %}" style="text-decoration: none; color: #333; font-size: 1.5rem; display: inline-block; margin-bottom: 10px; padding: 10px;">
+            {{ project.articleTitle }} {{"_"}} {{ project.targetLanguage }}
+        </a><br>
+    {% endfor %}
+    <br>
+    <a href="{% url 'project' %}" style="background-color: #4CAF50; color: white; padding: 0.5rem 1rem; border-radius: 7px; text-decoration: none; font-size: 1.5rem; margin-top: 1rem;">Create A New Project</a>
+</div>
+
+
