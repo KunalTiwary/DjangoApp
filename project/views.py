@@ -45,7 +45,7 @@ def project(request):
         return render(request, 'project.html', {'users': annotators})
     else:
         # if an annotator tries to create a project by directly calling the url /project.
-        return HttpResponse("<h1>Not Authorised</h1>")
+        return render(request, 'notAuthorised.html')
 
 # after project created
 @login_required
@@ -85,4 +85,4 @@ def listProjects(request):
                 projects.append(project)
         return render(request, 'listAnnotatorProjects.html', {'projects': projects})
     else:
-        return HttpResponse("<h1>Not Authorised</h1>")
+        return render(request, 'notAuthorised.html')

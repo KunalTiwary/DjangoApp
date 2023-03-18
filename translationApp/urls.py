@@ -35,5 +35,6 @@ urlpatterns = [
     path('sentenceupdated/', sentenceUpdated, name='sentenceupdated'),
     path('listprojects/', listProjects, name='listprojects'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('', CustomLoginView.as_view(), name='login'),
+    path('', listProjects, name='listprojects')
+    #path('', CustomLoginView.as_view(), name=''),
 ]

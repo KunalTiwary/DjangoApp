@@ -28,7 +28,7 @@ def sentence(request, projectId):
         sentences = Sentence.objects.filter(projectId=project)
         return render(request, 'sentences.html', {'sentences': sentences, 'project': project})
     else:
-        return HttpResponse("<h1>Not Authorised</h1>")
+        return render(request, 'notAuthorised.html')
 
 # after updating
 @login_required
