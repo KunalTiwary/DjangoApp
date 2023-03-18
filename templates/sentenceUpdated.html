@@ -1,13 +1,43 @@
+<style>
+    .logout-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #f44336;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 7px;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    .logout-button:hover {
+        background-color: #d32f2f;
+    }
+
+    .action-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 7px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .action-button:hover {
+        background-color: #333;
+    }
+</style>
+
 <div style="text-align: center; background-color: #f1f1f1; padding: 10px;">
     <h1>Sentence Updated</h1>
     <br>
-    <a href="{% url 'project' %}" style="background-color: #4CAF50; color: white; padding: 0.5rem 1rem; border-radius: 7px; text-decoration: none; font-size: 1.2rem; margin-top: 1rem;">Create Another Project</a>
-    <a href="{% url '' %}" style="background-color: #333; color: white; padding: 0.5rem 1rem; border-radius: 7px; text-decoration: none; font-size: 1.2rem; margin-top: 1rem; margin-left: 1rem;">List of Active Projects</a>
+    <a href="{% url 'project' %}" class="action-button">Create Another Project</a>
+    <a href="{% url '' %}" class="action-button" style="margin-left: 1rem;">List of Active Projects</a>
+    <a href="{% url 'logout' %}" class="logout-button">Logout</a>
 </div>
 
-<style>
-    a:hover {
-        background-color: blue;
-        color: white;
-    }
-</style>
+
+

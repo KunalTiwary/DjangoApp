@@ -1,3 +1,30 @@
+<style>
+    .logout-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #f44336;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 7px;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    .logout-button:hover {
+        background-color: #d32f2f;
+    }
+
+    a:hover {
+        background-color: #D3D3D3;
+    }
+
+    a.create-button:hover {
+        background-color: #333;
+    }
+</style>
+
+
 <div style="text-align: center; background-color: #f1f1f1; padding: 10px;">
     <h2 style="font-size: 2rem; text-decoration: underline;">List of Active Projects</h2>
     {% for project in projects %}
@@ -6,7 +33,7 @@
         </a><br>
     {% endfor %}
     <br>
-    <a href="{% url 'project' %}" style="background-color: #4CAF50; color: white; padding: 0.5rem 1rem; border-radius: 7px; text-decoration: none; font-size: 1.5rem; margin-top: 1rem;">Create A New Project</a>
+    <a href="{% url 'project' %}" class="create-button" style="background-color: #4CAF50; color: white; padding: 0.5rem 1rem; border-radius: 7px; text-decoration: none; font-size: 1.5rem; margin-top: 1rem;
+transition: background-color 0.3s ease-in-out;">Create A New Project</a>
+    <a href="{% url 'logout' %}" class="logout-button">Logout</a>
 </div>
-
-

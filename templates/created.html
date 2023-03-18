@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,11 +29,28 @@
         a:hover {
             background-color: #333;
         }
+
+        .logout-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #f44336;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 7px;
+        text-decoration: none;
+        font-size: 1rem;
+        }
+
+        .logout-button:hover {
+            background-color: #d32f2f;
+        }
     </style>
 </head>
 <body>
     <h1>Project Created</h1>
     <a href="{% url 'project' %}">Create Another Project</a>
     <a href="{% url '' %}">List of Active Projects</a>
+    <a href="{% url 'logout' %}" class="logout-button">Logout</a>
 </body>
 </html>

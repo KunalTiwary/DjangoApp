@@ -2,6 +2,51 @@
 <html>
   <head>
     <title>My HTML Form</title>
+    <style>
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        border-radius: 7px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #333;
+      }
+     a {
+        background-color: #4CAF50;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 7px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        margin: 1rem;
+     }
+
+     a:hover {
+            background-color: #333;
+       }
+    .logout-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #f44336;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 7px;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    .logout-button:hover {
+        background-color: #d32f2f;
+    }
+    </style>>
+
   </head>
   <body>
     <form method="post" action="{% url 'project' %}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
@@ -25,7 +70,9 @@
         <option value="te">Telugu</option>
         <option value="ur">Urdu</option>
       </select><br><br>
-      <input type="submit" value="Submit" style="background-color: #4CAF50; color: white; padding: 0.5rem; font-size: 1.2rem; border-radius: 7px; border: none; cursor: pointer; transition: background-color 0.3s ease-in-out;">
+      <input type="submit" value="Submit">
+      <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+      <a href="{% url '' %}">List of Active Projects</a>
     </form>
   </body>
 </html>
