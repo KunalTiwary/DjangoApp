@@ -2,7 +2,7 @@ import json
 
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from project.models import project as pro
+from project.models import Project as pro
 from .models import Sentence
 # Create your views here.
 

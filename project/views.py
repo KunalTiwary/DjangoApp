@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from .models import project as pro
+from .models import Project as pro
 from wikipediaapi import Wikipedia
 from sentence.models import Sentence as sen
 
