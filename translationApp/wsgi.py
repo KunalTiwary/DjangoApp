@@ -1,5 +1,5 @@
 """
-WSGI config for ai4bharat project.
+WSGI config for translationApp project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ai4bharat.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "translationApp.settings")
 
 application = get_wsgi_application()
