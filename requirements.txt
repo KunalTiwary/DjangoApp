@@ -1,5 +1,5 @@
 asgiref
-backports.zoneinfo
+backports.zoneinfo;python_version<"3.9"
 certifi
 charset-normalizer
 dj-database-url
